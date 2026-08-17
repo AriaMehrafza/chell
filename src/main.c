@@ -25,7 +25,7 @@ void print_prompt(void)
     if (getcwd(cwd, sizeof(cwd)) == NULL)
         snprintf(cwd, sizeof(cwd), "?");
 
-    printf("%s@%s:%s$ ", username, hostname, cwd);
+    printf("[%s@%s:%s]$ ", username, hostname, cwd);
     fflush(stdout);
 }
 
