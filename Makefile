@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=gnu11
 
 TARGET = chell
-SRC = src/main.c src/parser.c
+SRC = src/main.c src/parser.c src/executor.c src/builtin.c
 
 .PHONY: all clean
 
