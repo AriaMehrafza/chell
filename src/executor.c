@@ -18,7 +18,7 @@ int execute(char **args)
     if (pid == 0) {
         execvp(args[0], args);
 
-        perror("execvp");
+        perror("chell");
         exit(EXIT_FAILURE);
     }
 
