@@ -7,49 +7,49 @@
 
 char **parse_line(char *line)
 {
-  char **args = malloc(sizeof(char *) * MAX_ARGS);
+  	char **args = malloc(sizeof(char *) * MAX_ARGS);
 
-  if (!args)
-    return NULL;
+	if (!args)
+		return NULL;
 
-  int argc = 0;
+	int argc = 0;
 
-  char *copy = strdup(line);
+	char *copy = strdup(line);
 
-  if (!copy) {
-    free(args);
-    return NULL;
-  }
+	if (!copy) {
+		free(args);
+		return NULL;
+	}
 
-  char *token = strtok(copy, " \t\n");
+	char *token = strtok(copy, " \t\n");
 
-  while (token && argc < MAX_ARGS - 1) {
-    args[argc] = strdup(token);
+	while (token && argc < MAX_ARGS - 1) {
+		args[argc] = strdup(token);
 
-    if (!args[argc]) {
-      free_args(args);
-      free(copy);
-      return NULL;
-    }
+		if (!args[argc]) {
+		free_args(args);
+		free(copy);
+		return NULL;
+		}
 
-    argc++;
-    token = strtok(NULL, " \t\n");
-  }
+		argc++;
+		token = strtok(NULL, " \t\n");
+	}
 
-  args[argc] = NULL;
+	args[argc] = NULL;
 
-  free(copy);
+	free(copy);
 
-  return args;
+  	return args;
 }
 
 void free_args(char **args)
 {
-  if (!args)
-    return;
+	if (!args)
+		return;
 
-  for (int i = 0; args[i]; i++)
-    free(args[i]);
+	for (int i = 0; args[i]; i++)
+		free(args[i]);
 
-  free(args);
+	free(args);
 }
